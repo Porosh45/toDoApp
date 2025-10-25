@@ -20,9 +20,20 @@ btn.addEventListener('click',() => {
         deleteBtn.classList.add('delete-btn')
 
 
+
+        const addSubBtn = document.createElement('button')
+        addSubBtn.classList.add('subtask-btn')
+        addSubBtn.textContent = '+ Subtask'
+
+        
         const li = document.createElement('li')
         li.textContent = input.value
+        
+        const subList = document.createElement('ul')
+        li.appendChild(subList)
+        
         li.appendChild(deleteBtn)
+        li.appendChild(addSubBtn)
         ol.appendChild(li)
 
 
@@ -31,6 +42,17 @@ btn.addEventListener('click',() => {
             li.remove()
         })
         input.value = ''
+
+        addSubBtn.addEventListener('click' , ()=>{
+        const subtaskName = prompt('Enter Subtask: ')
+        if(subtaskName){
+            const subtaskLi = document.createElement('li');
+            subtaskLi.textContent = subtaskName
+            subList.appendChild(subtaskLi)
+    }
 })
+    })
+
+
 
 
